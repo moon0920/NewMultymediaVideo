@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NewMultymediaVideo</string>
+    <string name="textViewTitle">Video Play</string>
+    <string name="btnTaken">Taken</string>
+</resources>
