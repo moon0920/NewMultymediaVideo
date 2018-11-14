@@ -19,8 +19,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Button btnTaken = findViewById(R.id.btnTaken);
         btnTaken.setOnClickListener(this);
+        videoView = (VideoView)findViewById(R.id.videoView);
 
         }
 
@@ -35,10 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == RESULT_OK) {
+        if(resultCode == RESULT_OK) {
             Uri videoUri = data.getData();
-            Toast.makeText(this, ""+videoUri,Toast.LENGTH_SHORT);
-            videoView = (VideoView)findViewById(R.id.videoView);
+            Toast.makeText(this, ""+videoUri,Toast.LENGTH_SHORT).show();
             videoView.setVideoURI(videoUri);
             videoView.start();
         }
